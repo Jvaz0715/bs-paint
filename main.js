@@ -24,10 +24,13 @@ while (count <= gridWidth * gridWidth) {
   canvas.appendChild(div);
   count++;
 }
-
-// event listener function for what happens when one is clicked.
 //===========DO NOT TOUCH ABOVE CODE===========
 
+//in order to use mousedown to color in squares, declare mousedown = false outside of all code, before functions so it can be called (scoping), mouse enter will function in later code
+
+let mouseDown = false;
+
+// event listener function for what happens when one is clicked.
 //query the canvas squares
 const canvasSquares = document.querySelectorAll('.canvas');
 //loop through all the canvas squares and create eventlistener click event
@@ -44,8 +47,11 @@ const paletteColors = document.querySelectorAll('.palette-color');
 for (palette of paletteColors) {
   palette.addEventListener('click', function(){
     console.log("you clicked on a palette color")
-  })
+  });
+  palette.addEventListener('click', changeCurrentBrush)
 }
+
+
 
 //query the main brush
 const currentBrush = document.querySelector(".current-brush");
@@ -56,15 +62,24 @@ currentBrush.addEventListener('click', function(){
 
 //Functions that will replace console.log's inside of click events
 //============================================
-// create a function that will replace the current brush with the palette clicked
+
 //this function will grab the "second class of the palette which holds the color in css e.g. color-1 is lightblue"
 function grabColor(e) {
   return e.classList[1];
 }
-//
+// create a function that will change the color of the canvas square with the color of the current brush
 function whenSquareClicked(e) {
   const square = e.target;
-  currentBrush;//already queried outside function
-  //change the color of the square to currentbrush color by adding its class
   square.classList.replace(grabColor(square), grabColor(currentBrush))
 }
+
+//create a function that will change the current brush color to the palette color that is selected
+//then add it to the event handler for  current brush
+function changeCurrentBrush(e) {
+  currentBrush.classList.replace(grabColor(currentBrush), grabColor(e.target));
+}
+
+
+
+//how to handle if user keeps mouse pressed down?
+//Use the mousedown effect 
