@@ -49,13 +49,6 @@ while (count <= gridWidth * gridWidth) {
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
 
-const canvasSquares = document.querySelectorAll('.canvas');
-//loop through all the canvas squares and create eventlistener
-for (square of canvasSquares) {
-  square.addEventListener('click', function () {
-    console.log('You clicked on a canvas square');
-  })
-}
 
 
 
@@ -80,3 +73,20 @@ for (square of canvasSquares) {
 // square and for each palette color from the functions you
 // wrote above.
 
+//queries the canvas squares
+const canvasSquares = document.querySelectorAll('.canvas');
+//loop through all the canvas squares and create eventlistener click event
+for (square of canvasSquares) {
+  square.addEventListener('click', function () {
+    console.log('You clicked on a canvas square');
+  })
+}
+
+//query the pallette colors and do something
+const paletteColors = document.querySelectorAll('.palette-color');
+//loop through the palettes and create eventlistener click event
+for (palette of paletteColors) {
+  palette.addEventListener('click', function(){
+    console.log("you clicked on a palette color")
+  })
+}
