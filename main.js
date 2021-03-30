@@ -34,7 +34,8 @@ const canvasSquares = document.querySelectorAll('.canvas');
 for (square of canvasSquares) {
   square.addEventListener('click', function () {
     console.log('You clicked on a canvas square');
-  })
+  });
+  square.addEventListener('click', whenSquareClicked)
 }
 
 //query the pallette colors and do something
@@ -53,7 +54,7 @@ currentBrush.addEventListener('click', function(){
   console.log('You clicked the current brush')
 })
 
-//Functions that will replace console logs below
+//Functions that will replace console.log's inside of click events
 //============================================
 // create a function that will replace the current brush with the palette clicked
 //this function will grab the "second class of the palette which holds the color in css e.g. color-1 is lightblue"
@@ -62,5 +63,8 @@ function grabColor(e) {
 }
 //
 function whenSquareClicked(e) {
-  const square = e.target
+  const square = e.target;
+  currentBrush;//already queried outside function
+  //change the color of the square to currentbrush color by adding its class
+  square.classList.replace(grabColor(square), grabColor(currentBrush))
 }
