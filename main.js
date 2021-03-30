@@ -90,3 +90,10 @@ for (palette of paletteColors) {
     console.log("you clicked on a palette color")
   })
 }
+
+//query the main brush
+const currentBrush = document.querySelector(".current-brush");
+
+currentBrush.addEventListener('click', function(){
+  console.log('You clicked the current brush')
+})
