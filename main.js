@@ -35,9 +35,9 @@ let mouseDown = false;
 const canvasSquares = document.querySelectorAll('.canvas');
 //loop through all the canvas squares and create eventlistener click event
 for (square of canvasSquares) {
-  square.addEventListener('click', function () {
+  /*square.addEventListener('click', function () {
     console.log('You clicked on a canvas square');
-  });
+  });*/
   square.addEventListener('click', whenSquareClicked)
 }
 
@@ -45,9 +45,9 @@ for (square of canvasSquares) {
 const paletteColors = document.querySelectorAll('.palette-color');
 //loop through the palettes and create eventlistener click event
 for (palette of paletteColors) {
-  palette.addEventListener('click', function(){
+  /*palette.addEventListener('click', function(){
     console.log("you clicked on a palette color")
-  });
+  });*/
   palette.addEventListener('click', changeCurrentBrush)
 }
 
@@ -82,4 +82,5 @@ function changeCurrentBrush(e) {
 
 
 //how to handle if user keeps mouse pressed down?
-//Use the mousedown effect 
+//Use the mousedown effect
+
