@@ -28,8 +28,6 @@ while (count <= gridWidth * gridWidth) {
 
 //in order to use mousedown to color in squares, declare mousedown = false outside of all code, before functions so it can be called (scoping), mouse enter will function in later code
 
-let mouseDown = false;
-
 // event listener function for what happens when one is clicked.
 //query the canvas squares
 const canvasSquares = document.querySelectorAll('.canvas');
@@ -51,8 +49,6 @@ for (palette of paletteColors) {
   palette.addEventListener('click', changeCurrentBrush)
 }
 
-
-
 //query the main brush
 const currentBrush = document.querySelector(".current-brush");
 //console log on brush
@@ -70,7 +66,7 @@ function grabColor(e) {
 // create a function that will change the color of the canvas square with the color of the current brush
 function whenSquareClicked(e) {
   const square = e.target;
-  square.classList.replace(grabColor(square), grabColor(currentBrush))
+  square.classList.replace(grabColor(square), grabColor(currentBrush));
 }
 
 //create a function that will change the current brush color to the palette color that is selected
@@ -83,4 +79,5 @@ function changeCurrentBrush(e) {
 
 //how to handle if user keeps mouse pressed down?
 //Use the mousedown effect
+
 
